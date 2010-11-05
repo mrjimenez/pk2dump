@@ -23,12 +23,12 @@
 	int x_err = 0; \
 	int x_aux = 0; \
 	int x_line = 0; \
-	char *x_msg = NULL;
+	const char *x_msg = NULL;
 
 #define TEST_FOR_ERROR(cond, loop, label, str) \
 	if (cond) { \
 		x_err = 1; \
-		x_aux = loop; \
+		x_aux = (int)loop; \
 		x_line = __LINE__; \
 		x_msg = str; \
 		goto label; \

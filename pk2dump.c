@@ -27,10 +27,10 @@ static struct DeviceFamilyParams *deviceFamilyParams;
 static struct DevicePartParams *devicePartParams;
 static struct DeviceScripts *deviceScripts;
 
-int readPK2DeviceFile(const char *filename)
+size_t readPK2DeviceFile(const char *filename)
 {
 	DECLARE_ERROR_VARS;
-	int ret = 0;
+	size_t ret = 0;
 	size_t num;
 	FILE *fin;
 
@@ -43,9 +43,9 @@ int readPK2DeviceFile(const char *filename)
 	/* Read device family parameters. */
 	num = deviceFileParams.p2.NumberFamilies;
 	deviceFamilyParams = calloc(num, sizeof deviceFamilyParams[0]);
-	TEST_FOR_ERROR(!deviceFamilyParams, -1, error2, "error in calloc()");
+	TEST_FOR_ERROR(!deviceFamilyParams, num, error2, "error in calloc()");
 	ret = readDeviceFamilyParams(fin, num, deviceFamilyParams);
-	TEST_FOR_ERROR(!ret, -1, error3, "error reading device file parameters");
+	TEST_FOR_ERROR(!ret, -1, error3, "error reading device family parameters");
 	/* Read device part parameters. */
 	num = deviceFileParams.p2.NumberParts;
 	devicePartParams = calloc(num, sizeof devicePartParams[0]);
@@ -76,13 +76,13 @@ error1:
 	return ret;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
 	DECLARE_ERROR_VARS;
 	const char *version = "1.0";
 	const char *datFileName = "PK2DeviceFile.dat";
 	FILE *fout = stdout;
-	int n;
+	size_t n;
 
 	n = readPK2DeviceFile(datFileName);
 	TEST_FOR_ERROR(!n, -1, error1, "error reading dat file");

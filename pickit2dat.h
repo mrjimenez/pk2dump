@@ -25,11 +25,11 @@
 extern "C" {
 #endif /* __cplusplus */
 
-int readString(FILE *fin, int maxSize, int *size, char *buf);
-int readDeviceFileParams(FILE *fin, struct DeviceFileParams *filePars);
-int readDeviceFamilyParams(FILE *fin, size_t num, struct DeviceFamilyParams famPars[]);
-int readDevicePartParams(FILE *fin, size_t num, struct DevicePartParams partPars[]);
-int readDeviceScripts(FILE *fin, size_t num, struct DeviceScripts scripts[]);
+size_t readString(FILE *fin, size_t maxSize, size_t *size, char *buf);
+size_t readDeviceFileParams(FILE *fin, struct DeviceFileParams *filePars);
+size_t readDeviceFamilyParams(FILE *fin, size_t num, struct DeviceFamilyParams famPars[]);
+size_t readDevicePartParams(FILE *fin, size_t num, struct DevicePartParams partPars[]);
+size_t readDeviceScripts(FILE *fin, size_t num, struct DeviceScripts scripts[]);
 void printDeviceFileParams(FILE *fout, struct DeviceFileParams *filePars);
 void printDeviceFamilyParams(FILE *fout, size_t num, struct DeviceFamilyParams famPars[]);
 void printDevicePartParams(FILE *fout, size_t num, struct DevicePartParams partPars[]);

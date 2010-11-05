@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,8 +35,8 @@ static void endianConvDeviceFileParams2(struct DeviceFileParams2 *p)
 	p->NumberFamilies = le32toh(p->NumberFamilies);
 	p->NumberParts = le32toh(p->NumberParts);
 	p->NumberScripts = le32toh(p->NumberScripts);
-	//p->Compatibility = ;
-	//p->UNUSED1A = ;
+	/*p->Compatibility = ;*/
+	/*p->UNUSED1A = ;*/
 	p->UNUSED1B = le16toh(p->UNUSED1B);
 	p->UNUSED2 = le32toh(p->UNUSED2);
 }
@@ -54,17 +55,17 @@ static void endianConvDeviceFamilyParams2(struct DeviceFamilyParams2 *p)
 	p->ReadDevIDScript = le16toh(p->ReadDevIDScript);
 	p->DeviceIDMask = le32toh(p->DeviceIDMask);
 	p->BlankValue = le32toh(p->BlankValue);
-	//p->BytesPerLocation = ;
-	//p->AddressIncrement = ;
-	//p->PartDetect = ;
+	/*p->BytesPerLocation = ;*/
+	/*p->AddressIncrement = ;*/
+	/*p->PartDetect = ;*/
 	p->UNUSED1 = le32toh(p->UNUSED1);
-	//p->EEMemBytesPerWord = ;
-	//p->EEMemAddressIncrement = ;
-	//p->UserIDHexBytes = ;
-	//p->UserIDBytes = ;
-	//p->ProgMemHexBytes = ;
-	//p->EEMemHexBytes = ;
-	//p->ProgMemShift = ;
+	/*p->EEMemBytesPerWord = ;*/
+	/*p->EEMemAddressIncrement = ;*/
+	/*p->UserIDHexBytes = ;*/
+	/*p->UserIDBytes = ;*/
+	/*p->ProgMemHexBytes = ;*/
+	/*p->EEMemHexBytes = ;*/
+	/*p->ProgMemShift = ;*/
 	p->TestMemoryStart = le32toh(p->TestMemoryStart);
 	p->TestMemoryLength = le16toh(p->TestMemoryLength);
 	p->Vpp = le32toh(p->Vpp);
@@ -79,9 +80,9 @@ static void endianConvDevicePartParams1(struct DevicePartParams1 *p)
 	p->ProgramMem = le32toh(p->ProgramMem);
 	p->EEMem = le16toh(p->EEMem);
 	p->EEAddr = le32toh(p->EEAddr);
-	//p->ConfigWords = ;
+	/*p->ConfigWords = ;*/
 	p->ConfigAddr = le32toh(p->ConfigAddr);
-	//p->UserIDWords = ;
+	/*p->UserIDWords = ;*/
 	p->UserIDAddr = le32toh(p->UserIDAddr);
 	p->BandGapMask = le32toh(p->BandGapMask);
 	for (i = 0; i < 8; ++i)
@@ -89,16 +90,16 @@ static void endianConvDevicePartParams1(struct DevicePartParams1 *p)
 	for (i = 0; i < 8; ++i)
 		p->ConfigBlank[i] = le16toh(p->ConfigBlank[i]);
 	p->CPMask = le16toh(p->CPMask);
-	//p->CPConfig = ;
-	//p->OSCCALSave = ;
+	/*p->CPConfig = ;*/
+	/*p->OSCCALSave = ;*/
 	p->IgnoreAddress = le32toh(p->IgnoreAddress);
 	p->VddMin = le32toh(p->VddMin);
 	p->VddMax = le32toh(p->VddMax);
 	p->VddErase = le32toh(p->VddErase);
-	//p->CalibrationWords = ;
+	/*p->CalibrationWords = ;*/
 	p->ChipEraseScript = le16toh(p->ChipEraseScript);
 	p->ProgMemAddrSetScript = le16toh(p->ProgMemAddrSetScript);
-	//p->ProgMemAddrBytes = ;
+	/*p->ProgMemAddrBytes = ;*/
 	p->ProgMemRdScript = le16toh(p->ProgMemRdScript);
 	p->ProgMemRdWords = le16toh(p->ProgMemRdWords);
 	p->EERdPrepScript = le16toh(p->EERdPrepScript);
@@ -111,7 +112,7 @@ static void endianConvDevicePartParams1(struct DevicePartParams1 *p)
 	p->ProgMemWrPrepScript = le16toh(p->ProgMemWrPrepScript);
 	p->ProgMemWrScript = le16toh(p->ProgMemWrScript);
 	p->ProgMemWrWords = le16toh(p->ProgMemWrWords);
-	//p->ProgMemPanelBufs = ;
+	/*p->ProgMemPanelBufs = ;*/
 	p->ProgMemPanelOffset = le32toh(p->ProgMemPanelOffset);
 	p->EEWrPrepScript = le16toh(p->EEWrPrepScript);
 	p->EEWrScript = le16toh(p->EEWrScript);
@@ -123,8 +124,8 @@ static void endianConvDevicePartParams1(struct DevicePartParams1 *p)
 	p->OSCCALRdScript = le16toh(p->OSCCALRdScript);
 	p->OSCCALWrScript = le16toh(p->OSCCALWrScript);
 	p->DPMask = le16toh(p->DPMask);
-	//p->WriteCfgOnErase = ;
-	//p->BlankCheckSkipUsrIDs = ;
+	/*p->WriteCfgOnErase = ;*/
+	/*p->BlankCheckSkipUsrIDs = ;*/
 	p->IgnoreBytes = le16toh(p->IgnoreBytes);
 	p->ChipErasePrepScript = le16toh(p->ChipErasePrepScript);
 	p->UNUSED3 = le32toh(p->UNUSED3);
@@ -138,7 +139,7 @@ static void endianConvDevicePartParams1(struct DevicePartParams1 *p)
 	p->TestMemoryRdWords = le16toh(p->TestMemoryRdWords);
 	p->EERowEraseScript = le16toh(p->EERowEraseScript);
 	p->EERowEraseWords = le16toh(p->EERowEraseWords);
-	//p->ExportToMPLAB = ;
+	/*p->ExportToMPLAB = ;*/
 	p->DebugHaltScript = le16toh(p->DebugHaltScript);
 	p->DebugRunScript = le16toh(p->DebugRunScript);
 	p->DebugStatusScript = le16toh(p->DebugStatusScript);
@@ -178,11 +179,11 @@ static void endianConvScript(int n, ushort s[])
 	}
 }
 
-int readString(FILE *fin, int maxSize, int *size, char *buf)
+size_t readString(FILE *fin, size_t maxSize, size_t *size, char *buf)
 {
 	DECLARE_ERROR_VARS;
 	size_t n = 0;
-	int ret = 0;
+	size_t ret = 0;
 	size_t i;
 	size_t j;
 
@@ -211,10 +212,10 @@ error1:
 	return ret;
 }
 
-int readDeviceFileParams(FILE *fin, struct DeviceFileParams *filePars)
+size_t readDeviceFileParams(FILE *fin, struct DeviceFileParams *filePars)
 {
 	DECLARE_ERROR_VARS;
-	int ret = 0;
+	size_t ret = 0;
 	size_t n;
 
 	n = fread(&filePars->p1, sizeof filePars->p1, 1, fin);
@@ -237,11 +238,11 @@ error1:
 	return ret;
 }
 
-int readDeviceFamilyParams(FILE *fin, size_t num, struct DeviceFamilyParams famPars[])
+size_t readDeviceFamilyParams(FILE *fin, size_t num, struct DeviceFamilyParams famPars[])
 {
 	DECLARE_ERROR_VARS;
-	int ret = 0;
-	int i;
+	size_t ret = 0;
+	size_t i;
 	size_t n;
 
 	for (i = 0; i < num; ++i) {
@@ -270,11 +271,11 @@ error1:
 	return ret;
 }
 
-int readDevicePartParams(FILE *fin, size_t num, struct DevicePartParams partPars[])
+size_t readDevicePartParams(FILE *fin, size_t num, struct DevicePartParams partPars[])
 {
 	DECLARE_ERROR_VARS;
-	int ret = 0;
-	int i;
+	size_t ret = 0;
+	size_t i;
 	size_t n;
 
 	for (i = 0; i < num; ++i) {
@@ -298,11 +299,11 @@ error1:
 	return ret;
 }
 
-int readDeviceScripts(FILE *fin, size_t num, struct DeviceScripts scripts[])
+size_t readDeviceScripts(FILE *fin, size_t num, struct DeviceScripts scripts[])
 {
 	DECLARE_ERROR_VARS;
-	int ret = 0;
-	int i;
+	size_t ret = 0;
+	size_t i;
 	size_t n;
 
 	for (i = 0; i < num; ++i) {
@@ -322,9 +323,6 @@ int readDeviceScripts(FILE *fin, size_t num, struct DeviceScripts scripts[])
 			"error reading deviceScripts[i].p2");
 		endianConvDeviceScripts2(&scripts[i].p2);
 		/* Read the script. */
-		TEST_FOR_ERROR(scripts[i].p2.ScriptLength < 0,
-			scripts[i].p2.ScriptLength,
-			error1, "size of script is negative");
 		TEST_FOR_ERROR(scripts[i].p2.ScriptLength > MAX_SCRIPT_SIZE,
 			scripts[i].p2.ScriptLength,
 			error1, "size of script is too big");
@@ -360,7 +358,7 @@ void printDeviceFileParams(FILE *fout, struct DeviceFileParams *filePars)
 		"Number of Parts    = %d\n"
 		"Number of Scripts  = %d\n"
 		"Compatibility      = 0x%02X\n"
-		"Verson Notes Size  = %u\n"
+		"Verson Notes Size  = %zd\n"
 		"Version Notes:\n%s\n"
 		,
 		filePars->p1.VersionMajor,
@@ -377,7 +375,7 @@ void printDeviceFileParams(FILE *fout, struct DeviceFileParams *filePars)
 
 void printDeviceFamilyParams(FILE *fout, size_t num, struct DeviceFamilyParams famPars[])
 {
-	int i;
+	size_t i;
 
 	fprintf(fout,
 		"Families listing (%zd members):\n"
@@ -388,7 +386,7 @@ void printDeviceFamilyParams(FILE *fout, size_t num, struct DeviceFamilyParams f
 			"Family ID   = %u\n"
 			"Family type = %u\n"
 			"Search priority = %u\n"
-			"Family name size = %d\n"
+			"Family name size = %zd\n"
 			"Family name = %s\n"
 			"Program entry script  = %u\n"
 			"Program exit script   = %u\n"
@@ -439,8 +437,8 @@ void printDeviceFamilyParams(FILE *fout, size_t num, struct DeviceFamilyParams f
 
 void printDevicePartParams(FILE *fout, size_t num, struct DevicePartParams partPars[])
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	fprintf(fout,
 		"Parts listing (%zd members):\n"
@@ -448,7 +446,7 @@ void printDevicePartParams(FILE *fout, size_t num, struct DevicePartParams partP
 		num);
 	for (i = 0; i < num; ++i) {
 		fprintf(fout,
-			"Part name size = %d\n"
+			"Part name size = %zd\n"
 			"Part name = %s\n"
 			"Family = %u\n"
 			"Device ID = 0x%08x\n"
@@ -475,11 +473,11 @@ void printDevicePartParams(FILE *fout, size_t num, struct DevicePartParams partP
 			partPars[i].p1.UserIDAddr,
 			partPars[i].p1.BandGapMask
 		);
-		for (j= 0; j < 8; ++j)
+		for (j = 0; j < 8; ++j)
 			fprintf(fout, " 0x%04x",
 				partPars[i].p1.ConfigMasks[j]);
 		fprintf(fout, "\nConfig blank = ");
-		for (j= 0; j < 8; ++j)
+		for (j = 0; j < 8; ++j)
 			fprintf(fout, " 0x%04x",
 				partPars[i].p1.ConfigBlank[j]);
 		fprintf(fout,
@@ -626,8 +624,8 @@ void printDevicePartParams(FILE *fout, size_t num, struct DevicePartParams partP
 
 void printDeviceScripts(FILE *fout, size_t num, struct DeviceScripts scripts[])
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	fprintf(fout,
 		"Scripts listing (%zd members):\n"
@@ -636,7 +634,7 @@ void printDeviceScripts(FILE *fout, size_t num, struct DeviceScripts scripts[])
 	for (i = 0; i < num; ++i) {
 		fprintf(fout,
 			"Script number = %d\n"
-			"Script name size = %d\n"
+			"Script name size = %zd\n"
 			"Script name = %s\n"
 			"Script version = %u\n"
 			"Script length = %u\n"
@@ -651,7 +649,7 @@ void printDeviceScripts(FILE *fout, size_t num, struct DeviceScripts scripts[])
 		for (j = 0; j < scripts[i].p2.ScriptLength; ++j)
 			fprintf(fout, " %04X", scripts[i].Script[j]);
 		fprintf(fout,
-			"Script comment size = %d\n"
+			"Script comment size = %zd\n"
 			"Script comment = %s\n"
 			"----------------------------------------------------------\n"
 			,

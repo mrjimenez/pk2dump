@@ -51,9 +51,9 @@ struct DeviceFileParams1 {
 };
 
 struct DeviceFileParams2 {
-	int NumberFamilies;
-	int NumberParts;
-	int NumberScripts;
+	uint NumberFamilies;
+	uint NumberParts;
+	uint NumberScripts;
 	byte Compatibility;
 	byte UNUSED1A;
 	ushort UNUSED1B;
@@ -63,7 +63,7 @@ struct DeviceFileParams2 {
 #define MAX_VERSION_NOTES_SIZE	512
 struct DeviceFileParams {
 	struct DeviceFileParams1 p1;
-	int VersionNotesSize;
+	size_t VersionNotesSize;
 	char VersionNotes[MAX_VERSION_NOTES_SIZE + 1];
 	struct DeviceFileParams2 p2;
 };
@@ -102,7 +102,7 @@ struct DeviceFamilyParams2 {
 #define MAX_FAMILY_NAME_SIZE	32
 struct DeviceFamilyParams {
 	struct DeviceFamilyParams1 p1;
-	int FamilyNameSize;
+	size_t FamilyNameSize;
 	char FamilyName[MAX_FAMILY_NAME_SIZE + 1];
 	struct DeviceFamilyParams2 p2;
 };
@@ -194,7 +194,7 @@ struct DevicePartParams1 {
 
 #define MAX_PART_NAME_SIZE	20
 struct DevicePartParams {
-	int PartNameSize;
+	size_t PartNameSize;
 	char PartName[MAX_PART_NAME_SIZE + 1];
 	struct DevicePartParams1 p1;
 };
@@ -216,11 +216,11 @@ struct DeviceScripts2 {
 #define MAX_COMMENT_SIZE	512
 struct DeviceScripts {
 	struct DeviceScripts1 p1;
-	int ScriptNameSize;
+	size_t ScriptNameSize;
 	char ScriptName[MAX_SCRIPT_NAME_SIZE + 1];
 	struct DeviceScripts2 p2;
 	ushort Script[MAX_SCRIPT_SIZE];
-	int CommentSize;
+	size_t CommentSize;
 	char Comment[MAX_COMMENT_SIZE + 1];
 };
 
