@@ -1,0 +1,23 @@
+
+README file for pk2dump
+=======================
+
+pk2dump is a library to read the file PK2DeviceFile.dat that is supplied
+with PICkit2 utilities. This file contains all the necessary parameters
+to successfully program all the supported PICs.
+
+There are two sets of routines, the reading ones and the text output ones.
+
+The reading routines are divided in such a way that allows an external
+program to call them and perform the necessary memory allocations.
+
+To allow C++ programs to use these routines, all memory allocation operations
+are left out of the library.
+
+The program pk2dump.c has an example of how to read and print the file using
+the supplied routines.
+
+Compiling should be as easy as that:
+
+$ gcc -Wall pk2dump.c pickit2dat.c -o pk2dump
+
