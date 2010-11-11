@@ -31,6 +31,8 @@
 #ifndef DATFILE_H
 #define DATFILE_H
 
+#include <stdlib.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -38,7 +40,14 @@ extern "C" {
 #define	byte		unsigned char
 #define	ushort		unsigned short
 #define	uint		unsigned int
-#define	bool		byte
+/*
+ * Defining bool sucks because it will conflict with C++, but the orginal file
+ * was not written by me and I suppose that leaving it like that will make it
+ * easier to port changes to this file.
+ */
+#ifndef __cplusplus
+	#define	bool		byte
+#endif
 
 #pragma pack(push, 1)
 
