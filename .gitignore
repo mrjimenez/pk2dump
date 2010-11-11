@@ -1,6 +1,9 @@
 *~
 .*.swp
 .gdb_history
-pk2dump
+pk2dump_c
+pk2dump_cpp
+*.o
 dump1.txt
+dump2.txt
 
