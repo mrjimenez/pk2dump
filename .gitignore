@@ -1,9 +1,12 @@
-*~
 .*.swp
-.gdb_history
-pk2dump_c
-pk2dump_cpp
 *.o
+*~
+cmake_install.cmake
+CMakeFiles
 dump1.txt
 dump2.txt
-
+.gdb_history
+libpk2dump.a
+Makefile
+pk2dump_c
+pk2dump_cpp
