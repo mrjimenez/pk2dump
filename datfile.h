@@ -37,16 +37,16 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#define	byte		unsigned char
-#define	ushort		unsigned short
-#define	uint		unsigned int
+typedef unsigned char   byte;
+typedef unsigned	uint;
+typedef unsigned short  ushort;
 /*
  * Defining bool sucks because it will conflict with C++, but the orginal file
  * was not written by me and I suppose that leaving it like that will make it
  * easier to port changes to this file.
  */
 #ifndef __cplusplus
-	#define	bool		byte
+	typedef unsigned char bool;
 #endif
 
 #pragma pack(push, 1)
